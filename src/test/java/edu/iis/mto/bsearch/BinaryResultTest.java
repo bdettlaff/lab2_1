@@ -39,7 +39,7 @@ public class BinaryResultTest {
 
     @Test
     public void shouldReturnTrueIfOneElementIsLastInSequence() {
-        int[] sequence = {4, 3, 6, 7, 9};
+        int[] sequence = {3, 4, 6, 7, 9};
         int key = 9;
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertThat(sequence.length, is(equalTo(searchResult.getPosition())));
@@ -47,15 +47,15 @@ public class BinaryResultTest {
 
     @Test
     public void shouldReturnTrueIfOneElementIsMiddleInSequence() {
-        int[] sequence = {4, 3, 6, 5, 8, 10, 10};
-        int key = 5;
+        int[] sequence = {3, 4, 5, 6, 8, 10, 10};
+        int key = 6;
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertThat((sequence.length + 1) / 2, is(equalTo(searchResult.getPosition())));
     }
 
     @Test
     public void shouldReturnTrueIfOneElementDoesNotExistInSequence() {
-        int[] sequence = {4, 3, 6, 7, 8};
+        int[] sequence = {3, 4, 6, 7, 8};
         int key = 9;
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertThat(-1, is(equalTo(searchResult.getPosition())));
@@ -67,6 +67,11 @@ public class BinaryResultTest {
         int key = 3;
         thrown.expect(IllegalArgumentException.class);
         BinarySearch.search(key,sequence);
+    }
+
+    @Test
+    public void shouldReturnTrueIfSequenceIsSorted(){
+
     }
 
 

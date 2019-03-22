@@ -54,4 +54,12 @@ public class BinaryResultTest {
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertEquals(-1, searchResult.getPosition());
     }
+
+    @Test
+    public void shouldReturnTrueIfOneElementIsNotInEmptySequence(){
+        int[] sequence = new int[0];
+        int key = 3;
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertEquals(-1, searchResult.getPosition());
+    }
 }

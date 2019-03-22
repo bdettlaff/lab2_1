@@ -1,6 +1,8 @@
 package edu.iis.mto.bsearch;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -8,6 +10,8 @@ import static org.hamcrest.Matchers.is;
 
 public class BinaryResultTest {
 
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void shouldReturnTrueIfOneElementIsInOneElementSequence() {
@@ -59,9 +63,11 @@ public class BinaryResultTest {
 
     @Test
     public void shouldReturnTrueIfOneElementIsNotInEmptySequence(){
-        int[] sequence = new int[0];
+        int[] sequence = {};
         int key = 3;
-        SearchResult searchResult = BinarySearch.search(key, sequence);
-        assertThat(-1, is(equalTo(searchResult.getPosition())));
+        thrown.expect(IllegalArgumentException.class);
+        BinarySearch.search(key,sequence);
     }
+
+
 }

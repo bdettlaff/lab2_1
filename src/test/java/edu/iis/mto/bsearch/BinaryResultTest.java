@@ -68,11 +68,4 @@ public class BinaryResultTest {
         thrown.expect(IllegalArgumentException.class);
         BinarySearch.search(key,sequence);
     }
-
-    @Test
-    public void shouldReturnTrueIfSequenceIsSorted(){
-
-    }
-
-
 }
